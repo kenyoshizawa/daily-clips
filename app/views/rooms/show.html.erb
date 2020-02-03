@@ -1,0 +1,20 @@
+<% if logged_in? %>
+  <p>ログイン完了ユーザさん: <%= current_user.name %></p>
+<% end %>
+<h1>Chat room</h1>
+
+<div id="messages">
+  <%= render @messages %>
+</div>
+
+<form>
+  <label>Say something:</label>
+  <div class="form-group">
+    <input type="text" data-behavior="room_speaker">
+  </div>
+</form>
+
+<!-- jquery動作確認用 -->
+<script>
+  $("#messages").css("color","red")
+</script>

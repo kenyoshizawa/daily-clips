@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'users#index'
-  get 'signup', to: 'users#new'
 
+  get 'signup', to: 'users#new'
   resources :users, only: [:index, :show, :new, :create]
   #   get 'users', to: 'users#index'
   #   post 'users', to: 'users#create'
@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  get 'room', to: 'rooms#show'
+  mount ActionCable.server => '/cable'
 end

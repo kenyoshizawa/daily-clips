@@ -1,7 +1,7 @@
-class Message < ApplicationRecord
-  belongs_to :sent_user, class_name: "User", foreign_key: 'user_id'
+class Post < ApplicationRecord
+  belongs_to :user
   belongs_to :room
-  
+
   validates :content, presence: true
   after_create_commit { MessageBroadcastJob.perform_later self }
 end

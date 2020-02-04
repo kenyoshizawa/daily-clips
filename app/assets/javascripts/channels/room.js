@@ -1,4 +1,4 @@
-App.room = App.cable.subscriptions.create("RoomChannel", {
+App.room = App.cable.subscriptions.create("RoomChannel", room_id: messages.data('room_id'), {
   connected: function() {
     return console.log("success to connect!")
   },

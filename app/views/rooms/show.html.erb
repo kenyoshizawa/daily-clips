@@ -1,20 +1,9 @@
-<% if logged_in? %>
-  <p>ログイン完了ユーザさん: <%= current_user.name %></p>
-<% end %>
-<h1>Chat room</h1>
-
-<div id="messages">
+<div id="messages", data-room_id="<%= @room.id %>">
   <%= render @messages %>
 </div>
-
-<form>
-  <label>Say something:</label>
-  <div class="form-group">
+<div class="input">
+  <form>
+    <label>post</label>
     <input type="text" data-behavior="room_speaker">
-  </div>
-</form>
-
-<!-- jquery動作確認用 -->
-<script>
-  $("#messages").css("color","red")
-</script>
+  </form>
+</div>
